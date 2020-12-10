@@ -1,0 +1,13 @@
+$font-size-base: 1rem;
+$bg: crimson;
+$bg: gold;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: $font-size-base ;
+  background-color: $bg;
+  min-height: 100vh;
+}
