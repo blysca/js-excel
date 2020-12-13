@@ -4,6 +4,10 @@ class Dom {
       document.querySelector( selector ) : selector
   }
 
+  get data() {
+    return this.$el.dataset
+  }
+
   html( html ) {
     if ( typeof html === 'string' ) {
       this.$el.innerHTML = html
@@ -17,12 +21,12 @@ class Dom {
     return this
   }
 
-  on(eventType, callback) {
-    this.$el.addEventListener(eventType, callback)
+  on( eventType, callback ) {
+    this.$el.addEventListener( eventType, callback )
   }
 
-  off(eventType, callback) {
-    this.$el.removeEventListener( eventType, callback)
+  off( eventType, callback ) {
+    this.$el.removeEventListener( eventType, callback )
   }
 
   append( node ) {
@@ -35,6 +39,26 @@ class Dom {
     } else {
       this.$el.appendChild( node )
     }
+
+    return this
+  }
+
+  closest( selector ) {
+    return $( this.$el.closest( selector ) )
+  }
+
+  getCoords() {
+    return this.$el.getBoundingClientRect()
+  }
+
+  findAll(selctor) {
+    return this.$el.querySelectorAll(selctor)
+  }
+
+  css(styles = {}) {
+    Object.keys(styles).forEach(property => {
+      this.$el.style[property] = styles[property]
+    })
 
     return this
   }

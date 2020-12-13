@@ -3,17 +3,34 @@ const CODES = {
   Z: 90
 }
 
-function addCell() {
-  return `<div class="cell" contenteditable></div>`
+function addCell( _, colIndex ) {
+  return `<div
+    class="cell" 
+    data-col="${ colIndex }"
+    contenteditable
+  ></div>`
 }
 
-function addCol( colName ) {
-  return `<div class="column">${ colName }</div>`
+function addCol( colName, index ) {
+  const colIndex = `data-col="${ index }"`
+  return `
+    <div
+      class="column"
+      data-type="resizeble"
+      ${ colIndex }
+    >
+      ${ colName }
+      <div class="col-resize" data-resize="col"></div>
+    </div>`
 }
 
 function createRow( index, content ) {
-  return `<div class="row">
-    <div class="row-info">${ index ? index : '' }</div>
+  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : ''
+  return `<div class="row" ${ index ? 'data-type="resizeble"' : '' }>
+    <div class="row-info">
+      ${ index ? index : '' }
+      ${ resize }
+    </div>
     <div class="row-data">${ content }</div>
 </div>`
 }
