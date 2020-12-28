@@ -67,6 +67,7 @@ module.exports = {
     alias: {
       '@': path.resolve( __dirname, 'src' ),
       '@core': path.resolve( __dirname, 'src/core' ),
+      'process': 'process/browser'
     },
   },
   watch: true,
@@ -92,7 +93,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          /*{
+          /* {
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },*/
