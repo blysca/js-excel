@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "normalize.css": "^8.0.1"
+    "core-js": "^2.6.12",
+    "normalize.css": "^8.0.1",
+    "path": "^0.12.7"
   }
 }
