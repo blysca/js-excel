@@ -4,7 +4,6 @@ export function createStore( rootReducer, initialState = {} ) {
 
   return {
     subscribe( fn ) {
-      console.log('listeners: ', listeners)
       listeners.push( fn )
       return {
         unsubscribe() {
