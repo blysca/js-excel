@@ -34,8 +34,6 @@ export function resizeHandler( $root, event ) {
       document.onmousemove = null
       document.onmouseup = null
 
-      console.log( 'onmoues down' )
-
       if ( direction === 'col' ) {
         $parent.css( { width: `${ value }px` } )
         $root

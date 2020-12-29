@@ -44,7 +44,6 @@ export class Formula extends ExcelComponont {
     const keys = [ 'Enter', 'Tab' ]
     if ( keys.includes( event.key ) ) {
       event.preventDefault()
-      console.log( 'enter' )
       this.$emit( 'formula:enter' )
     }
   }
