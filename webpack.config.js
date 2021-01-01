@@ -12,13 +12,7 @@ const isDev = !isProd
 
 const filename = ext => isDev ? `bundle.${ ext }` : `bundle.[hash].${ ext }`
 const jsLoaders = () => {
-  const loaders = [ {
-    loader: 'babel-loader',
-    options: {
-      presets: [ '@babel/preset-env' ],
-      plugins: ['@babel/plugin-proposal-class-properties']
-    },
-  } ]
+  const loaders = [ 'babel-loader' ]
 
   if ( isDev ) {
     loaders.push( 'eslint-loader' )
@@ -47,9 +41,9 @@ const plugins = [
   new MiniCssExtractPlugin( {
     filename: filename( 'css' ),
   } ),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  })
+  new webpack.DefinePlugin( {
+    'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV )
+  } )
 ]
 
 if ( isDev ) {
